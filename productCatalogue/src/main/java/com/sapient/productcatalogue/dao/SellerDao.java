@@ -6,13 +6,13 @@ import com.sapient.productcatalogue.model.Seller;
 
 public interface SellerDao
 {
-	int add(Seller seller);
-
-	Seller getById(int sellerId);
+	Seller getByGstId(String gstId);
 
 	List<Seller> getAll();
 
-	int update(int sellerId, String sellerName);
+	int add(Seller seller);
 
-	int remove(int sellerId);
+	int update(String gstId, String sellerName);
+
+	int remove(String gstId);
 }

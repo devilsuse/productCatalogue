@@ -13,6 +13,7 @@ create table COLOR
 create table SUPPLIER
 (
 	SUPPLIER_ID IDENTITY NOT NULL PRIMARY KEY, 
+	GST_ID varchar(50),
 	SUPPLIER_NAME varchar(50)
 );
 
@@ -20,7 +21,8 @@ create table SUPPLIER
 create table SELLER
 (
 	SELLER_ID IDENTITY NOT NULL PRIMARY KEY, 
-	SELLER_NAME varchar(50)
+	GST_ID varchar(50),
+	SELLER_NAME varchar(100)
 );
 
 create table PRODUCT 

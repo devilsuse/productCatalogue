@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sapient.productcatalogue.model.Seller;
 
 public class ResponseAPI implements Serializable
@@ -11,9 +12,12 @@ public class ResponseAPI implements Serializable
 	private static final long serialVersionUID = 1L;
 
 	@JsonInclude(JsonInclude.Include.NON_NULL)
+	@JsonProperty("error")
 	private ErrorApi errorApi;
 
 	private List<Seller> sellers;
+	
+	private String message;
 
 	public ResponseAPI()
 	{
@@ -47,6 +51,16 @@ public class ResponseAPI implements Serializable
 	public static long getSerialversionuid()
 	{
 		return serialVersionUID;
+	}
+	
+	public String getMessage()
+	{
+		return message;
+	}
+
+	public void setMessage(String message)
+	{
+		this.message = message;
 	}
 
 }

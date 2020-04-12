@@ -3,7 +3,6 @@ package com.sapient.productcatalogue.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,8 +24,8 @@ public class SellerDaoImpl implements SellerDao
 	@Value("${seller.add}")
 	private String sellerAddSql;
 
-	@Value("${seller.getById}")
-	private String sellerGetByIdSql;
+	@Value("${seller.getByGSTId}")
+	private String sellerGetByGSTIdSql;
 
 	@Value("${seller.getAll}")
 	private String sellerGetAllSql;
@@ -45,10 +44,10 @@ public class SellerDaoImpl implements SellerDao
 	}
 
 	@Override
-	public Seller getById(int sellerId)
+	public Seller getByGstId(String gstId)
 	{
-		SqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("sellerId", sellerId);
-		return jdbcTemplate.queryForObject(sellerGetByIdSql, mapSqlParameterSource, new SellerRowMapper());
+		SqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("gstId", gstId);
+		return jdbcTemplate.queryForObject(sellerGetByGSTIdSql, mapSqlParameterSource, new SellerRowMapper());
 	}
 
 	@Override
@@ -58,18 +57,18 @@ public class SellerDaoImpl implements SellerDao
 	}
 
 	@Override
-	public int update(int sellerId, String sellerName)
+	public int update(String gstId, String sellerName)
 	{
-		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("sellerId", sellerId);
+		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("gstId", gstId);
 		mapSqlParameterSource.addValue("sellerName", sellerName);
 
 		return jdbcTemplate.update(sellerUpdateSql, mapSqlParameterSource);
 	}
 
 	@Override
-	public int remove(int sellerId)
+	public int remove(String gstId)
 	{
-		SqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("sellerId", sellerId);
+		SqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("gstId", gstId);
 		return jdbcTemplate.update(sellerRemoveSql, mapSqlParameterSource);
 	}
 
@@ -80,6 +79,7 @@ public class SellerDaoImpl implements SellerDao
 		{
 			Seller s = new Seller();
 			s.setSellerId(rs.getInt("seller_id"));
+			s.setGstId(rs.getString("gst_id"));
 			s.setSellerName(rs.getString("seller_name"));
 			return s;
 		}

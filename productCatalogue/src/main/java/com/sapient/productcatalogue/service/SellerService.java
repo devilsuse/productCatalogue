@@ -6,13 +6,13 @@ import com.sapient.productcatalogue.model.Seller;
 
 public interface SellerService
 {
-	Seller getById(int sellerId);
+	Seller getByGstId(String gstId);
 
 	List<Seller> getAll();
 
 	int add(Seller seller);
 
-	int update(int sellerId, String sellerName);
+	int update(String gstId, String sellerName);
 
-	int remove(int sellerId);
+	int remove(String gstId);
 }

@@ -1,6 +1,7 @@
 package com.sapient.productcatalogue.service;
 
 import static org.springframework.http.HttpStatus.OK;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

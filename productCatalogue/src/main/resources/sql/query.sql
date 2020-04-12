@@ -5,18 +5,18 @@ color.getById = SELECT * from COLOR where color_id = :colorId
 color.remove = DELETE from COLOR where color_id = :colorId
 
 #seller sqls
-seller.add = INSERT into SELLER(seller_name) values (:sellerName)
+seller.add = INSERT into SELLER(gst_id, seller_name) values (:gstId, :sellerName)
 seller.getAll = SELECT * from SELLER
-seller.getById = SELECT * from SELLER where seller_id = :sellerId
-seller.remove = DELETE from SELLER where seller_id = :sellerId
-seller.update = UPDATE SELLER set seller_name = :sellerName where seller_id = :sellerId
+seller.getByGSTId = SELECT * from SELLER where gst_id = :gstId
+seller.remove = DELETE from SELLER where gst_id = :gstId
+seller.update = UPDATE SELLER set seller_name = :sellerName where gst_id = :gstId
 
 #supplier sqls
-supplier.add = INSERT into SUPPLIER(supplier_name) values (:supplierName)
+supplier.add = INSERT into SUPPLIER(gst_id, supplier_name) values (:gstId, :supplierName)
 supplier.getAll = SELECT * from SUPPLIER
-supplier.getById = SELECT * from SUPPLIER where supplier_id = :supplierId
-supplier.remove = DELETE from SUPPLIER where supplier_id = :supplierId
-supplier.update = UPDATE SUPPLIER set supplier_name = :supplierName where supplier_id = :supplierId
+supplier.getByGSTId = SELECT * from SUPPLIER where gst_id = :gstId
+supplier.remove = DELETE from SUPPLIER where gst_id = :gstId
+supplier.update = UPDATE SUPPLIER set supplier_name = :supplierName where supplier_id = :gstId
 
 #MEASUREMENT_UNIT sqls
 measurementUnit.add = INSERT into MEASUREMENT_UNIT(measurement_unit_name) values (:measurementUnitName)

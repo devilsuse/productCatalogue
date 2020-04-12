@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sapient.productcatalogue.constant.AppConstant;
 import com.sapient.productcatalogue.dao.SellerDao;
+import com.sapient.productcatalogue.exception.CatalogueExceptionFactory;
 import com.sapient.productcatalogue.model.Seller;
 
 @Service
@@ -17,25 +19,57 @@ public class SellerServiceImpl implements SellerService
 	@Override
 	public int add(Seller seller)
 	{
-		return sellerDao.add(seller);
+		try
+		{
+			return sellerDao.add(seller);
+		}
+		catch(Exception e)
+		{
+			throw CatalogueExceptionFactory.sellerOperationFailed(AppConstant.ADD_SELLER_FAILED_CODE, 
+					AppConstant.ADD, AppConstant.ADD_SELLER_FAILED);
+		}
 	}
 
 	@Override
-	public int update(int sellerId, String sellerName)
+	public int update(String gstId, String sellerName)
 	{
-		return sellerDao.update(sellerId, sellerName);
+		try
+		{
+			return sellerDao.update(gstId, sellerName);
+		}
+		catch(Exception e)
+		{
+			throw CatalogueExceptionFactory.sellerOperationFailed(AppConstant.UPDATE_SELLER_FAILED_CODE, 
+					AppConstant.UPDATE, AppConstant.UPDATE_SELLER_FAILED);
+		}
 	}
 
 	@Override
-	public int remove(int sellerId)
+	public int remove(String gstId)
 	{
-		return sellerDao.remove(sellerId);
+		try
+		{
+			return sellerDao.remove(gstId);
+		}
+		catch(Exception e)
+		{
+			throw CatalogueExceptionFactory.sellerOperationFailed(AppConstant.DELETE_SELLER_FAILED_CODE, 
+					AppConstant.DELETE, AppConstant.DELETE_SELLER_FAILED);
+		}
 	}
 
 	@Override
-	public Seller getById(int sellerId)
+	public Seller getByGstId(String gstId)
 	{
-		return sellerDao.getById(sellerId);
+		try
+		{
+			return sellerDao.getByGstId(gstId);
+		}
+		catch(Exception e)
+		{
+			throw CatalogueExceptionFactory.sellerOperationFailed(AppConstant.GET_SELLER_FAILED_CODE, 
+					AppConstant.GET, AppConstant.GET_SELLER_FAILED);
+		}
 	}
 
 	@Override
