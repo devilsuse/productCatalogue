@@ -54,8 +54,7 @@ public class SellerDaoImpl implements SellerDao
 	@Override
 	public List<Seller> getAll()
 	{
-		Map<String,?> map = null; // wantedly passing null map below - just to break method selection ambiguity
-		return jdbcTemplate.queryForList(sellerGetAllSql, map, Seller.class);
+		return jdbcTemplate.query(sellerGetAllSql, new SellerRowMapper());
 	}
 	
 	@Override
@@ -74,7 +73,7 @@ public class SellerDaoImpl implements SellerDao
 		return jdbcTemplate.update(sellerRemoveSql, mapSqlParameterSource);
 	}
 
-	private class SellerRowMapper implements RowMapper<Seller>
+	private static class SellerRowMapper implements RowMapper<Seller>
 	{
 		@Override
 		public Seller mapRow(ResultSet rs, int rowNum) throws SQLException

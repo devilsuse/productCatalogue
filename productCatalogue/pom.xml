@@ -17,6 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<!-- <h2.version>1.4.200</h2.version> -->
 	</properties>
 
 	<dependencies>
@@ -35,6 +36,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<version>1.4.200</version><!--$NO-MVN-MAN-VER$--> <!-- Earlier comment is quick-fix for suppressing m2e warning as suggested at https://bugs.eclipse.org/bugs/show_bug.cgi?id=346725 -->
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
