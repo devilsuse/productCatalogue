@@ -13,7 +13,7 @@ public class SellerServiceImpl implements SellerService
 {
 	@Autowired
 	private SellerDao sellerDao;
-	
+
 	@Override
 	public int add(Seller seller)
 	{
@@ -37,7 +37,6 @@ public class SellerServiceImpl implements SellerService
 	{
 		return sellerDao.getById(sellerId);
 	}
-
 
 	@Override
 	public List<Seller> getAll()

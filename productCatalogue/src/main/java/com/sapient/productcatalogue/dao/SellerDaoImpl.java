@@ -21,22 +21,22 @@ public class SellerDaoImpl implements SellerDao
 {
 	@Autowired
 	NamedParameterJdbcTemplate jdbcTemplate;
-	
+
 	@Value("${seller.add}")
 	private String sellerAddSql;
-	
+
 	@Value("${seller.getById}")
 	private String sellerGetByIdSql;
-	
+
 	@Value("${seller.getAll}")
 	private String sellerGetAllSql;
-	
+
 	@Value("${seller.remove}")
 	private String sellerRemoveSql;
-	
+
 	@Value("${seller.update}")
 	private String sellerUpdateSql;
-	
+
 	@Override
 	public int add(Seller seller)
 	{
@@ -56,13 +56,13 @@ public class SellerDaoImpl implements SellerDao
 	{
 		return jdbcTemplate.query(sellerGetAllSql, new SellerRowMapper());
 	}
-	
+
 	@Override
 	public int update(int sellerId, String sellerName)
 	{
 		MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource("sellerId", sellerId);
 		mapSqlParameterSource.addValue("sellerName", sellerName);
-		
+
 		return jdbcTemplate.update(sellerUpdateSql, mapSqlParameterSource);
 	}
 

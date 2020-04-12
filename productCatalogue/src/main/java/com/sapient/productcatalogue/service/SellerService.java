@@ -6,9 +6,13 @@ import com.sapient.productcatalogue.model.Seller;
 
 public interface SellerService
 {
-	int add(Seller seller);
 	Seller getById(int sellerId);
+
 	List<Seller> getAll();
+
+	int add(Seller seller);
+
 	int update(int sellerId, String sellerName);
+
 	int remove(int sellerId);
 }

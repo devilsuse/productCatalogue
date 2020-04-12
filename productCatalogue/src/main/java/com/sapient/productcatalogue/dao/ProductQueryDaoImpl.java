@@ -11,11 +11,11 @@ import com.sapient.productcatalogue.dto.ProductDTO;
 import com.sapient.productcatalogue.model.Product;
 
 @Repository
-public class ProductQueryDaoImpl 
+public class ProductQueryDaoImpl
 {
 	@Autowired
 	private NamedParameterJdbcTemplate pcJdbcTemplate;
-	
+
 	/*
 	 * public List<Product> getAllProducts() { List<Product> products = null; return
 	 * products; }

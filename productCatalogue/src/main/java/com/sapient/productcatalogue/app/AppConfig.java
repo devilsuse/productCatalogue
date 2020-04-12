@@ -13,7 +13,7 @@ public class AppConfig
 	{
 		return new PropertySourcesPlaceholderConfigurer();
 	}
-	
+
 	@Bean
 	public ConversionServiceFactoryBean conversionServiceFactoryBean()
 	{

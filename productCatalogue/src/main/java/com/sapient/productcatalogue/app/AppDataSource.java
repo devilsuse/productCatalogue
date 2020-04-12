@@ -19,14 +19,14 @@ import com.zaxxer.hikari.HikariDataSource;
 public class AppDataSource
 {
 	@Primary
-	@Bean(name="productCatalogueJdbcTemplate")
+	@Bean(name = "productCatalogueJdbcTemplate")
 	public NamedParameterJdbcTemplate productCatalogueJdbcTemplate()
 	{
-		DataSource ds =  productCatalogueDataSource1();
+		DataSource ds = productCatalogueDataSource1();
 		return new NamedParameterJdbcTemplate(ds);
-		//return new NamedParameterJdbcTemplate(productCatalogueDataSource1());
+		// return new NamedParameterJdbcTemplate(productCatalogueDataSource1());
 	}
-	
+
 	/*
 	 * @Primary
 	 * 
@@ -47,15 +47,15 @@ public class AppDataSource
 		 * 
 		 * return dataSource;
 		 */
-		
-		 HikariConfig hikariConfig = new HikariConfig();
-	        hikariConfig.setDriverClassName("org.h2.Driver");
-	        hikariConfig.setUsername("sa");
-	        hikariConfig.setPassword("");
-	        hikariConfig.setJdbcUrl("jdbc:h2:mem:test;MODE=oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
+
+		HikariConfig hikariConfig = new HikariConfig();
+		hikariConfig.setDriverClassName("org.h2.Driver");
+		hikariConfig.setUsername("sa");
+		hikariConfig.setPassword("");
+		hikariConfig.setJdbcUrl("jdbc:h2:mem:test;MODE=oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
 //	        dataSource.setJdbcUrl();
 //	        dataSource.setUsername("sa");
 //	        dataSource.setPassword("");
-	        return new HikariDataSource(hikariConfig);
+		return new HikariDataSource(hikariConfig);
 	}
 }

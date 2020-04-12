@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sapient.productcatalogue.service.ProductService;
 
 @RestController
-public class ProductController 
+public class ProductController
 {
 	@Autowired
 	private ProductService productService;
-	//private ;
-	
-	
-} 
+	// private ;
+
+}
