@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import com.sapient.productcatalogue.constant.AppConstant;
 import com.sapient.productcatalogue.dao.SellerDao;
@@ -16,6 +17,7 @@ public class SellerServiceImpl implements SellerService
 	@Autowired
 	private SellerDao sellerDao;
 
+	//private final TransactionTemplate transactionTemplate;
 	@Override
 	public int add(Seller seller)
 	{
