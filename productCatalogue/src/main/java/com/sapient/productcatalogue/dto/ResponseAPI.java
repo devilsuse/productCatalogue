@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sapient.productcatalogue.model.ProductSeller;
 import com.sapient.productcatalogue.model.Seller;
 
 public class ResponseAPI implements Serializable
@@ -14,15 +15,25 @@ public class ResponseAPI implements Serializable
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	@JsonProperty("error")
 	private ErrorApi errorApi;
-
-	private List<Seller> sellers;
-	
 	private String message;
 
+	private List<Seller> sellers;
+	private List<ProductSeller> productSellers;
+	
 	public ResponseAPI()
 	{
 	}
 	
+	public List<ProductSeller> getProductSellers()
+	{
+		return productSellers;
+	}
+
+	public void setProductSellers(List<ProductSeller> productSellers)
+	{
+		this.productSellers = productSellers;
+	}
+
 	public ResponseAPI(ErrorApi errorApi)
 	{
 		this.errorApi = errorApi;

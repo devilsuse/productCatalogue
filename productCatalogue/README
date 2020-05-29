@@ -1,3 +1,6 @@
 Access swagger-ui at:
 http://localhost:8080/swagger-ui.html
 
+--prevent already indexed from showing up in git status --> removes them from index 
+--> happens when a file is added to gitignore after being commited/pushed i.e. indexed
+git rm -r --cached  productCatalogue/logs/
